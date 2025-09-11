@@ -1,8 +1,8 @@
 {
   "name": "hss-discord-bot",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "version": "1.0.0",
+  "description": "Discord bot for capture messages and send them to a webhook",
+  "author": "Hugo Sáez",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -21,7 +21,11 @@
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.1",
+    "discord.js": "^14.22.1",
+    "necord": "^6.11.1",
+    "ofetch": "^1.4.1",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },
