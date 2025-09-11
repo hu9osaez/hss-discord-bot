@@ -29,6 +29,25 @@ WEBHOOK_URL=your_webhook_url
 DISCORD_DEVELOPMENT_GUILD_ID=optional_server_id
 ```
 
+## Getting a Discord Bot Token
+
+1. Go to the [Discord Developer Portal](https://discord.com/developers/applications)
+2. Click on "New Application" and give it a name
+3. Navigate to the "Bot" tab in the left sidebar
+4. Click "Add Bot" and confirm
+5. Under the "Token" section, click "Reset Token" or "Copy" to get your bot token
+   - Keep this token secure as it provides full access to your bot
+6. In the "Privileged Gateway Intents" section, enable:
+   - Message Content Intent
+   - Server Members Intent
+   - Presence Intent
+7. Save your changes
+
+To invite the bot to your server, go to the "OAuth2" → "URL Generator" tab:
+1. Select the "bot" scope
+2. Select appropriate permissions (at minimum: "Read Messages/View Channels", "Send Messages", "Read Message History")
+3. Copy the generated URL and open it in your browser to invite the bot
+
 ## Installation
 
 ### Using npm
@@ -46,12 +65,20 @@ npm run start:prod
 
 ### Using Docker
 
-```bash
-# Build the image
-docker build -t hss-discord-bot .
+#### Using Pre-built Image from GitHub Container Registry
 
-# Run the container
-docker run -d --name hss-discord-bot --env-file .env hss-discord-bot
+```bash
+# Pull the latest image
+docker pull ghcr.io/hu9osaez/hss-discord-bot:latest
+
+# Option 1: Run using an .env file
+docker run -d --name hss-discord-bot --env-file .env ghcr.io/hu9osaez/hss-discord-bot:latest
+
+# Option 2: Run with individual environment variables
+docker run -d --name hss-discord-bot \
+  -e DISCORD_TOKEN=your_discord_bot_token \
+  -e WEBHOOK_URL=your_webhook_url \
+  ghcr.io/hu9osaez/hss-discord-bot:latest
 ```
 
 ## Development
