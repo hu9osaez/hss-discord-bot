@@ -6,6 +6,7 @@ import { ofetch } from 'ofetch';
 @Injectable()
 export class AppListeners {
   private readonly logger = new Logger(AppListeners.name);
+
   @Once(Events.ClientReady)
   public onReady(@Context() [client]: [Client]): void {
     this.logger.log(`Bot connected as ${client.user?.displayName}`);

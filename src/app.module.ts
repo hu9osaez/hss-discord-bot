@@ -4,6 +4,7 @@ import { NecordModule } from 'necord';
 import { IntentsBitField } from 'discord.js';
 
 import { AppListeners } from './app.listeners';
+import { VoiceService } from './services';
 
 @Module({
   imports: [
@@ -18,10 +19,11 @@ import { AppListeners } from './app.listeners';
         IntentsBitField.Flags.GuildMessageReactions,
         IntentsBitField.Flags.GuildMessageTyping,
         IntentsBitField.Flags.MessageContent,
+        IntentsBitField.Flags.GuildVoiceStates,
       ],
     }),
   ],
   controllers: [],
-  providers: [AppListeners],
+  providers: [AppListeners, VoiceService],
 })
 export class AppModule {}
