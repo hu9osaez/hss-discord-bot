@@ -94,6 +94,10 @@ npm run lint
 npm run test
 ```
 
+## Additional Documentation
+
+For detailed research and planning on voice integration with ElevenLabs, see [docs/voice-integration-research-plan.md](docs/voice-integration-research-plan.md).
+
 ## Project Structure
 
 - `src/` - Source code
