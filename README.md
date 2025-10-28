@@ -12,6 +12,11 @@ Discord bot for capturing and forwarding messages to an external webhook.
   - Channel and server details
   - Timestamp
 - **Webhook Forwarding**: Sends all captured data to a configured external webhook.
+- **Voice Integration**: Automatically connects to voice channels and interacts using ElevenLabs AI:
+  - Automatic voice channel connection when target user joins
+  - Text-to-speech using ElevenLabs high-quality voices
+  - Real-time conversation capabilities
+  - Multi-language support
 
 ## Requirements
 
@@ -27,6 +32,13 @@ Create a `.env` file in the project root with the following variables:
 DISCORD_TOKEN=your_discord_bot_token
 WEBHOOK_URL=your_webhook_url
 DISCORD_DEVELOPMENT_GUILD_ID=optional_server_id
+
+# Voice Integration Configuration (Optional)
+DISCORD_VOICE_CHANNEL_ID=voice_channel_id
+DISCORD_USER_ID=your_user_id
+ELEVENLABS_API_KEY=your_elevenlabs_api_key
+ELEVENLABS_VOICE_ID=JBFqnCBsd6RMkjVDRZzb
+ELEVENLABS_MODEL_ID=eleven_turbo_v2_5
 ```
 
 ## Getting a Discord Bot Token
@@ -97,6 +109,15 @@ npm run test
 ## Additional Documentation
 
 For detailed research and planning on voice integration with ElevenLabs, see [docs/voice-integration-research-plan.md](docs/voice-integration-research-plan.md).
+
+## Testing Voice Functionality
+To test Voice Connection:
+1. Ensure `DISCORD_VOICE_CHANNEL_ID` and optionally `DISCORD_USER_ID` are set in your `.env` file.
+2. Run the bot using `npm run start:dev`.
+3. Join the specified voice channel with your Discord user.
+4. Observe the bot's console logs for connection status messages.
+5. Ensure the bot attempts to join and logs its connection status appropriately.
+6. Leave the channel to observe disconnection logs.
 
 ## Project Structure
 
